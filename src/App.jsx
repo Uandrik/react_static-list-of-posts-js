@@ -1,8 +1,24 @@
 import './App.scss';
 
-// import postsFromServer from './api/posts.json';
-// import commentsFromServer from './api/comments.json';
-// import usersFromServer from './api/users.json';
+import postsFromServer from './api/posts.json';
+import commentsFromServer from './api/comments.json';
+import usersFromServer from './api/users.json';
+
+function addComments(postId) {
+  return commentsFromServer.filter(coment => coment.postId === postId);
+}
+
+function addUser(userId) {
+  return usersFromServer.find(user => user.id === userId);
+}
+
+const posts = postsFromServer.map(post => ({
+  ...post,
+  comment: addComments(post.id),
+  user: addUser(post.userId),
+}));
+
+console.log(posts);
 
 export const App = () => (
   <section className="App">

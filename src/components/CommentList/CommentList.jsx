@@ -1,1 +1,3 @@
-export const CommentList = () => <>Put the list here</>;
+import './CommentList.spec';
+
+export const CommentList = () => <div className="CommentList" />;
