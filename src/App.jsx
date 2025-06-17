@@ -17,7 +17,7 @@ const posts = postsFromServer.map(post => {
   return {
     ...post,
     user: getUserById(post.userId),
-    comment: getCommentsById(post.id),
+    comments: getCommentsById(post.id),
   };
 });
 
